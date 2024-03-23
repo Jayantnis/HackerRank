@@ -1,0 +1,25 @@
+// java Code
+int maxRow = Integer.MAX_VALUE;
+int maxCol = Integer.MAX_VALUE;
+
+        // Iterate through the list of coordinate strings
+        for (String coord : upRight) {
+            // Parse coordinate string to extract row and column values
+            String[] parts = coord.split(" ");
+            int row = Integer.parseInt(parts[0]);
+            int col = Integer.parseInt(parts[1]);
+
+            // Update maxRow and maxCol with the minimum values of all coordinates
+            maxRow = Math.min(maxRow, row);
+            maxCol = Math.min(maxCol, col);
+        }
+
+        // Return the product of maxRow and maxCol to get the count of cells containing the maximal value
+        return (long) maxRow * (long) maxCol;
+
+
+//MY SQL Query
+SELECT e1.NAME AS LOWER_EARNER, e2.NAME AS HIGHER_EARNER
+FROM EMPLOYEE e1, EMPLOYEE e2
+WHERE e1.SALARY < e2.SALARY
+ORDER BY e1.ID ASC, e2.SALARY ASC;
